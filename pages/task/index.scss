@@ -1,0 +1,54 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  /* #ifdef H5 */
+  height: calc(100vh - 50px);
+  /* #endif  */
+}
+
+.task-tabbar {
+  height: 80rpx;
+  padding: calc(env(safe-area-inset-top) + 13px) 60rpx 0;
+
+  /* #ifdef MP-WEIXIN */
+  padding: calc(env(safe-area-inset-top) + 35px) 60rpx 0;
+  /* #endif */
+
+  /* #ifdef APP */
+  padding: calc(env(safe-area-inset-top) + 40px) 60rpx 0;
+  /* #endif */
+
+  display: flex;
+  align-items: center;
+  font-size: $uni-font-size-big;
+  background-color: #fff;
+  border-bottom: 1rpx solid #eee;
+  color: $uni-secondary-color;
+
+  .tab {
+    margin-right: 80rpx;
+  }
+
+  .active {
+    color: $uni-main-color;
+    font-weight: 500;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -18rpx;
+      width: 46rpx;
+      height: 8rpx;
+      border-radius: 8rpx;
+      transform: translate(-50%);
+      background-color: $uni-primary;
+    }
+  }
+}
+
+.task-list {
+  flex: 1;
+  overflow: hidden;
+}
